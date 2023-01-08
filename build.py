@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-#-*-encoding: utf-8 -*-
+# -*-encoding: utf-8 -*-
 
 import errno
 import os
@@ -7,8 +7,6 @@ import shutil
 import stat
 import subprocess
 import sys
-
-
 
 
 def mv(source, target):
@@ -80,13 +78,13 @@ if __name__ == '__main__':
     jar = os.path.join(buildDir, "libs", "PermissionManager.jar")
     jarName = os.path.basename(jar)
     outDir = os.path.join(LOCALDIR, "out")
-    
+
     rm_rf(outDir)
     rm_rf(buildDir)
     mkdir_p(outDir)
 
     buildTask("makeJar")
-    
+
     if os.path.exists(jar):
         mkdir_p(outDir)
         cp(jar, os.path.join(outDir, jarName))

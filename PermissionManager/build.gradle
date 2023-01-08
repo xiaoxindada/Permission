@@ -12,6 +12,8 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+        versionCode 1
+        versionName '1.0'
     }
 
     buildTypes {
@@ -29,6 +31,7 @@ android {
 repositories {
     google()
     mavenCentral()
+    maven { url 'https://jitpack.io' }
 }
 
 // makeJar
@@ -42,15 +45,13 @@ task makeJar(type: Copy) {
     //导入jar包
     include('classes.jar')
     //重命名
-    rename ('classes.jar', 'PermissionManager.jar')
+    rename('classes.jar', 'PermissionManager.jar')
 }
 makeJar.dependsOn(build)
 
 dependencies {
-    // PermissionX
-    implementation 'com.guolindev.permissionx:permissionx:1.7.1'
 
-    implementation fileTree(dir: 'libs', include: ['*.jar','*.aar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.7.0'
     testImplementation 'junit:junit:4.13.2'
