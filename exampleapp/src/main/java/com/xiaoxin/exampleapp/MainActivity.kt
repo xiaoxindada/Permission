@@ -25,15 +25,14 @@ class MainActivity : AppCompatActivity() {
         button1.setOnClickListener {
             val diedList: MutableList<String> = mutableListOf()
 
-            if (!Permission.AllisGrated(this@MainActivity, permissions, false)) {
+            if (!Permission.AllIsGrated(this@MainActivity, permissions, false)) {
                 Permission.request(this@MainActivity, permissions)
                 for (p in permissions) {
                     if (!Permission.isGrated(this@MainActivity, p, false))
                         diedList.add(p)
                 }
-                if (diedList.isNotEmpty()) {
+                if (diedList.isNotEmpty())
                     Toast.makeText(this@MainActivity, "拒绝列表: $diedList", Toast.LENGTH_LONG).show()
-                }
             } else {
                 Toast.makeText(this@MainActivity, "此app已获得所有权限", Toast.LENGTH_LONG).show()
             }
@@ -49,11 +48,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             if (grantedPermissionsList.isNotEmpty())
-                Toast.makeText(
-                    this@MainActivity,
-                    "成功获取权限的列表: $grantedPermissionsList",
-                    Toast.LENGTH_LONG
-                ).show()
+                Toast.makeText(this@MainActivity, "成功获取权限的列表: $grantedPermissionsList", Toast.LENGTH_LONG).show()
             else
                 Toast.makeText(this@MainActivity, "此app没有任何权限", Toast.LENGTH_LONG).show()
         }

@@ -60,7 +60,7 @@ public class Permission {
      * @param verbose 是否开启啰嗦模式
      * @return 权限是否已申请成功的结果
      */
-    public static boolean AllisGrated(Context context, String[] permissions, boolean verbose) {
+    public static boolean AllIsGrated(Context context, String[] permissions, boolean verbose) {
         final String TAG = "PermissionCheck";
         ArrayList<String> diedList = new ArrayList<>();
         for (String p : permissions) {
